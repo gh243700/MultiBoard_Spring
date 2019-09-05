@@ -18,3 +18,23 @@ INSERT INTO discussion(id,title,description,category_id,total_post_count) values
 INSERT INTO discussion(id,title,description,category_id,total_post_count) values (8,'New Builds and Planning','Build Planning Help, Appraisals, Tips and Tricks',3,0);
 INSERT INTO discussion(id,title,description,category_id,total_post_count) values (9,'Troubleshooting','Help... I need somebody...help...not just anybody...',3,0);
 INSERT INTO discussion(id,title,description,category_id,total_post_count) values (10,'Case Modding and Other Mods',null,3,0);
+
+
+
+
+
+//save
+
+SELECT D.id,D.member_id AS memberId, D.post_id AS postId,D.topic_title AS topicTitle,D.discussion_id AS discussionId,time,
+       M.username AS memberUsername
+    FROM recent_post_D D
+    LEFT JOIN
+        (SELECT id,username FROM member) M
+        ON D.member_id = M.id
+WHERE D.discussion_id IN (1);
+
+SELECT * FROM discussion
+
+
+P.number,file_name AS fileName,P.file_size AS fileSize,P.file_content AS fileContent,P.file_data AS fileData,P.upload_date AS uploadDate
+INNER JOIN profile_img P ON M.id = P.member_id

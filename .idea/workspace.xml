@@ -6,7 +6,33 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1e0a1c-1771-4c46-993a-bdd9b75e0754" name="Default Changelist" comment="" />
+    <list default="true" id="bc1e0a1c-1771-4c46-993a-bdd9b75e0754" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/BaseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/controller/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/controller/ForumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Discussion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Discussion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/DatabaseDML.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/DatabaseDML.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/controller/ForumController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Category$CategoryBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Category$CategoryBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Discussion$DiscussionBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Discussion$DiscussionBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Discussion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Discussion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/ProfileImg$ProfileImgBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/ProfileImg$ProfileImgBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/ProfileImg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/ProfileImg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/RecentPostD$RecentPostDBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/RecentPostD$RecentPostDBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/RecentPostD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/RecentPostD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Topic$TopicBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Topic$TopicBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Topic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/repository/DiscussionRepositoryI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/repository/DiscussionRepositoryI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/service/DiscussionServiceI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/service/DiscussionServiceI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/DiscussionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/DiscussionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/landon/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/landon/config/ApplicationConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/DatabaseDDL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/DatabaseDDL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database/DatabaseDML.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/DatabaseDML.txt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +64,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -104,20 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CategoryServiceImpl">
-    <configuration name="ApplicationConfig" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lee.landon.config.ApplicationConfig" />
-      <module name="MultiBoard" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lee.landon.config.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Util">
     <configuration name="CategoryServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lee.board.service.impl.CategoryServiceImpl" />
       <module name="MultiBoard" />
@@ -163,6 +176,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.lee.member.repository.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lee.board.util.Util" />
+      <module name="MultiBoard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lee.board.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -266,20 +292,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ApplicationConfig" />
       <item itemvalue="Application.MainTest" />
       <item itemvalue="Application.MemberRepositoryImpl" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.421" />
       <item itemvalue="Application.DiscussionRepositoryImpl" />
       <item itemvalue="Application.CategoryServiceImpl" />
+      <item itemvalue="Application.Util" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Util" />
         <item itemvalue="Application.CategoryServiceImpl" />
         <item itemvalue="Application.DiscussionRepositoryImpl" />
         <item itemvalue="Application.MemberRepositoryImpl" />
         <item itemvalue="Application.MainTest" />
-        <item itemvalue="Application.ApplicationConfig" />
       </list>
     </recent_temporary>
   </component>
@@ -317,7 +343,7 @@
       <workItem from="1567129643435" duration="17679000" />
       <workItem from="1567384553503" duration="30497000" />
       <workItem from="1567470622460" duration="20577000" />
-      <workItem from="1567556807832" duration="33550000" />
+      <workItem from="1567556807832" duration="40038000" />
     </task>
     <servers />
   </component>

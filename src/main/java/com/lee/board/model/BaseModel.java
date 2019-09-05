@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * @author Lee97
+ */
+
 @Getter
 @Setter
-@NoArgsConstructor
-@Builder
-@AllArgsConstructor
-@ToString
-public class Category extends BaseModel {
-  private String title;
+public abstract class BaseModel {
+  private long id;
 }

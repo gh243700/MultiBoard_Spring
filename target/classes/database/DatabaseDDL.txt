@@ -93,7 +93,8 @@ create table profile_img
     file_size         varchar(45)  not null,
     file_content_type varchar(500) not null,
     file_data         blob         not null,
-    upload_date       Timestamp default sysdate
+    upload_date       Timestamp default sysdate,
+    member_id         number       not null
 );
 
 create table discussion_upload_file

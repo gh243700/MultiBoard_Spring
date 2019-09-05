@@ -11,13 +11,13 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @ToString
-public class Discussion
+@Builder
+public class Discussion extends BaseModel
 {
-  private long id;
   private String title;
   private String description;
   private long categoryId;
   private int postCount;
+
 }
