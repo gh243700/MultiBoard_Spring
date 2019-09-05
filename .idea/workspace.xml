@@ -1,15 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MultiBoard:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1e0a1c-1771-4c46-993a-bdd9b75e0754" name="Default Changelist" comment="" />
+    <list default="true" id="bc1e0a1c-1771-4c46-993a-bdd9b75e0754" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Discussion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/RecentPostD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/RecentPostT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Topic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/CategoryRepositoryI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/DiscussionRepositoryI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/PostRepositoryI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/RecentPostDRepositoryI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/TopicRepositoryI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/CategoryRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/RecentPostDRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/CategoryServiceI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/DiscussionServiceI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/PostServiceI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/RecentPostDServiceI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/TopicServiceI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/impl/DiscussionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/impl/RecentPostDServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/util/Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/member/controller/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/member/model/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/member/repository/MemberRepositoryI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/member/repository/impl/MemberRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/member/service/MemberServiceI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/member/service/impl/MemberServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database/DatabaseDDL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database/DatabaseDML.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/META-INF/MultiBoard.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/MainTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/controller/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Board$BoardBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Board.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/BoardCategory$BoardCategoryBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/BoardCategory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/BoardUploadFile$BoardUploadFileBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/BoardUploadFile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/IBoardRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/BoardRepositoryImpl$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/BoardRepositoryImpl$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/BoardRepositoryImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/landon/config/ApplicationConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/landon/config/DatabaseConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/landon/config/WebConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/landon/config/WebInitializerConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/database/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/aspectjrt-1.9.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/aspectjweaver-1.9.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/commons-dbcp-1.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/commons-fileupload-1.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/commons-io-2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/commons-pool-1.5.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-aop-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-beans-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-context-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-core-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-expression-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-jcl-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-jdbc-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-tx-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-web-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/lib/spring-webmvc-5.1.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MultiBoard/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/MultiBoard.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/lee/board/MainTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/lee/landon/config/ApplicationConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/lee/landon/config/WebConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/lee/landon/config/WebInitializerConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/database/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MultiBoard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MultiBoard.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/controller/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/controller/ForumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/model/BoardCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/model/BoardUploadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/ProfileImg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/IBoardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/DiscussionRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/BoardRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/landon/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/landon/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/landon/config/DatabaseConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/landon/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/landon/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/landon/config/WebInitializerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/landon/config/WebInitializerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/jdbc.properties" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="jdbc:oracle:thin:@127.0.0.1:1521/orcl" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -19,15 +149,36 @@
     </option>
   </component>
   <component name="ProjectId" id="1Q5iITMM59y0fLJJZrQh37gJz4J" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="oracle" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/9_MultiBoard_end" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15059347" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.lee.board.service" />
+      <recent name="com.lee.board.repository" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.lee.board.repository.impl" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -41,6 +192,205 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Application.CategoryServiceImpl">
+    <configuration name="ApplicationConfig" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lee.landon.config.ApplicationConfig" />
+      <module name="MultiBoard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lee.landon.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CategoryServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lee.board.service.impl.CategoryServiceImpl" />
+      <module name="MultiBoard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lee.board.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscussionRepositoryImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lee.board.repository.impl.DiscussionRepositoryImpl" />
+      <module name="MultiBoard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lee.board.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lee.board.MainTest" />
+      <module name="MultiBoard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lee.board.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberRepositoryImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lee.member.repository.impl.MemberRepositoryImpl" />
+      <module name="MultiBoard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lee.member.repository.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 8.5.421" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.421" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8070/MultiBoard_war_exploded/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="MultiBoard:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/MultiBoard_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_MultiBoard" />
+        <option name="HTTP_PORT" value="8070" />
+        <option name="JNDI_PORT" value="1092" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55086" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+        <EnvironmentVariables>
+          <option name="NAME" value="jdbc.url" />
+          <option name="VALUE" value="jdbc:oracle:thin:@127.0.0.1:1521/orcl" />
+          <option name="IS_PREDEFINED" value="false" />
+        </EnvironmentVariables>
+        <EnvironmentVariables>
+          <option name="NAME" value="jdbc.driverClassName" />
+          <option name="VALUE" value="oracle.jdbc.driver.OracleDriver" />
+          <option name="IS_PREDEFINED" value="false" />
+        </EnvironmentVariables>
+        <EnvironmentVariables>
+          <option name="NAME" value="jdbc.username" />
+          <option name="VALUE" value="hr2" />
+          <option name="IS_PREDEFINED" value="false" />
+        </EnvironmentVariables>
+        <EnvironmentVariables>
+          <option name="NAME" value="jdbc.password" />
+          <option name="VALUE" value="oracle" />
+          <option name="IS_PREDEFINED" value="false" />
+        </EnvironmentVariables>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="MultiBoard:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ApplicationConfig" />
+      <item itemvalue="Application.MainTest" />
+      <item itemvalue="Application.MemberRepositoryImpl" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.421" />
+      <item itemvalue="Application.DiscussionRepositoryImpl" />
+      <item itemvalue="Application.CategoryServiceImpl" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CategoryServiceImpl" />
+        <item itemvalue="Application.DiscussionRepositoryImpl" />
+        <item itemvalue="Application.MemberRepositoryImpl" />
+        <item itemvalue="Application.MainTest" />
+        <item itemvalue="Application.ApplicationConfig" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@38421c82" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@38421c82" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5cb0795b" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -51,11 +401,28 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567066777727</updated>
-      <workItem from="1567066780797" duration="314000" />
+      <workItem from="1567066780797" duration="5246000" />
+      <workItem from="1567129643435" duration="17679000" />
+      <workItem from="1567384553503" duration="30497000" />
+      <workItem from="1567470622460" duration="20577000" />
+      <workItem from="1567556807832" duration="33246000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

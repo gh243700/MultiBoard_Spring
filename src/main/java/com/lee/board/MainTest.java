@@ -1,5 +1,5 @@
 package com.lee.board;
 
-public class MainTest {
 
+public class MainTest {
 }
