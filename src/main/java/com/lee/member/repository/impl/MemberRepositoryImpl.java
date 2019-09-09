@@ -7,8 +7,10 @@ import java.sql.Timestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Repository
+@Repository(value = "dddd")
+
 public class MemberRepositoryImpl implements MemberRepositoryI {
 
   @Autowired private JdbcTemplate jdbcTemplate;
@@ -18,6 +20,39 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
     String sql = "INSERT INTO member (id,username,password,email) VALUES(?,?,?,?)";
     return jdbcTemplate.update(
         sql, member.getId(), member.getUsername(), member.getPassword(), member.getEmail());
+  }
+
+  @Override
+  public ProfileImg getProfileImgById(long id) {
+    String sql =
+        "SELECT "
+            + "profile_img_name AS fileName,"
+            + "profile_img_size AS fileSize,"
+            + "profile_img_type AS type,"
+            + "profile_img_data AS fileData,"
+            + "profile_img_upload_date AS uploadDate "
+            + "FROM member "
+            + "WHERE id = ?";
+    return jdbcTemplate.queryForObject(sql, ProfileImg.class, id);
+  }
+
+  @Override
+  public int insertMemberProfileImg(long memberId, ProfileImg profileImg) {
+    String sql =
+        "UPDATE member SET "
+            + "profile_img_name = ?,"
+            + "profile_img_size = ?,"
+            + "profile_img_type = ?,"
+            + "profile_img_data = ?,"
+            + "profile_img_upload_date =? WHERE id=?";
+    return jdbcTemplate.update(
+        sql,
+        profileImg.getFileName(),
+        profileImg.getFileSize(),
+        profileImg.getType(),
+        profileImg.getFileData(),
+        System.currentTimeMillis(),
+        memberId);
   }
 
   @Override
@@ -57,13 +92,9 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
 
   @Override
   public int updateMemberInfo(Member member) {
-    String sql = "UPDATE member set username=?, password=?,email=?,post_count=?,last_visit=?,"
-        + "profile_img_name = ?,"
-        + "profile_img_size = ?,"
-        + "profile_img_type = ?,"
-        + "profile_img_data = ?,"
-        + "profile_img_upload_date =? WHERE id=?";
-    ProfileImg profileImg = member.getProfileImg();
+    String sql =
+        "UPDATE member set username=?, password=?,email=?,post_count=?,last_visit=? "
+            + "WHERE id=?";
     return jdbcTemplate.update(
         sql,
         member.getUsername(),
@@ -71,14 +102,8 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
         member.getEmail(),
         member.getPostCount(),
         member.getLastVisit(),
-        profileImg.getFileName(),
-        profileImg.getFileSize(),
-        profileImg.getType(),
-        profileImg.getFileData(),
-        System.currentTimeMillis(),
         member.getId());
   }
-
 
   @Override
   public Integer getMaxMemberId() {

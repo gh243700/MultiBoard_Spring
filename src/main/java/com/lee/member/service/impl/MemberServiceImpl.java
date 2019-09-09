@@ -1,11 +1,17 @@
 package com.lee.member.service.impl;
 
 import com.lee.member.model.Member;
+import com.lee.member.model.ProfileImg;
 import com.lee.member.repository.MemberRepositoryI;
 import com.lee.member.service.MemberServiceI;
+import com.lee.member.util.Util;
+import java.io.IOException;
 import java.sql.Timestamp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 /** @author Lee97 */
 @Service
@@ -19,9 +25,33 @@ public class MemberServiceImpl implements MemberServiceI {
   }
 
   @Override
+  @Transactional(rollbackFor = {DataAccessException.class,IOException.class})
   public int register(Member member) {
     member.setId(memberRepository.getMaxMemberId() + 1);
-    return memberRepository.insertMember(member);
+    if (member.getProfileImg() == null) {
+      MultipartFile file = Util.getDefaultImage();
+      if (file != null) {
+        try {
+          member.setProfileImg(
+              ProfileImg.builder()
+                  .fileName(file.getOriginalFilename())
+                  .fileData(file.getBytes())
+                  .fileSize(String.valueOf(file.getSize()))
+                  .uploadDate(new Timestamp(System.currentTimeMillis()))
+                  .type(file.getContentType())
+                  .build());
+        } catch (IOException e) {
+          e.printStackTrace();
+          return 0;
+        }
+      }
+    }
+    if (memberRepository.insertMember(member) != 1
+        || memberRepository.insertMemberProfileImg(member.getId(), member.getProfileImg()) != 1) {
+      // error
+      return -1;
+    }
+    return 1;
   }
 
   @Override
