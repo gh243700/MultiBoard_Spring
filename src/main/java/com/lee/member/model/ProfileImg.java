@@ -1,4 +1,4 @@
-package com.lee.board.model;
+package com.lee.member.model;
 
 import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
@@ -17,10 +17,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @ToString
-public class RecentPostT {
-
-  private long id;
-  private long memberId;
-  private long topicId;
-  private Timestamp time;
+public class ProfileImg {
+  private String fileName;
+  private String fileSize;
+  private String type;
+  private byte[] fileData;
+  private Timestamp uploadDate;
 }

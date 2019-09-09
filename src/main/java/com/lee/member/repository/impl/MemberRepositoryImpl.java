@@ -1,7 +1,9 @@
 package com.lee.member.repository.impl;
 
 import com.lee.member.model.Member;
+import com.lee.member.model.ProfileImg;
 import com.lee.member.repository.MemberRepositoryI;
+import java.sql.Timestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -55,7 +57,13 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
 
   @Override
   public int updateMemberInfo(Member member) {
-    String sql = "UPDATE member set username=?, password=?,email=?,post_count=?,last_visit=? WHERE id=?";
+    String sql = "UPDATE member set username=?, password=?,email=?,post_count=?,last_visit=?,"
+        + "profile_img_name = ?,"
+        + "profile_img_size = ?,"
+        + "profile_img_type = ?,"
+        + "profile_img_data = ?,"
+        + "profile_img_upload_date =? WHERE id=?";
+    ProfileImg profileImg = member.getProfileImg();
     return jdbcTemplate.update(
         sql,
         member.getUsername(),
@@ -63,8 +71,14 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
         member.getEmail(),
         member.getPostCount(),
         member.getLastVisit(),
+        profileImg.getFileName(),
+        profileImg.getFileSize(),
+        profileImg.getType(),
+        profileImg.getFileData(),
+        System.currentTimeMillis(),
         member.getId());
   }
+
 
   @Override
   public Integer getMaxMemberId() {

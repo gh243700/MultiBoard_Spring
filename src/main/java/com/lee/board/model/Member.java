@@ -1,5 +1,6 @@
 package com.lee.board.model;
 
+import com.lee.member.model.ProfileImg;
 import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,24 +9,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @author Lee97
- */
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
 @ToString
-public class RecentPostD {
-  private long id;
-  private long memberId;
-  private long postId;
-  private String topicTitle;
-  private long discussionId;
-  private Timestamp time;
+public class Member extends BaseModel {
+  private String username;
+  private String password;
+  private String email;
+  private String joined;
+  private int postCount;
+  private Timestamp lastVisit;
 
-  private String memberUsername;
   private ProfileImg profileImg;
-
 }

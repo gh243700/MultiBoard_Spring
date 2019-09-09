@@ -26,4 +26,6 @@ public class Member {
   private Timestamp joined;
   private int postCount;
   private Timestamp lastVisit;
+
+  private ProfileImg profileImg;
 }

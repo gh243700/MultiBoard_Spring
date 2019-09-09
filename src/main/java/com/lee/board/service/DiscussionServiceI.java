@@ -7,7 +7,5 @@ public interface DiscussionServiceI {
 
   List<Discussion> getListByCategoryId(long... id);
 
-  int getPostCountById(int id);
-
   int updatePostCount(int id);
 }

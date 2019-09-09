@@ -1,5 +1,6 @@
 package com.lee.board.model;
 
+import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,11 +14,15 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Builder
-public class Discussion extends BaseModel
-{
+public class Discussion extends BaseModel {
   private String title;
   private String description;
   private long categoryId;
   private int postCount;
 
+  private long recentPostId;
+  private long recentPostMemberId;
+  private long recentPostTopicsId;
+  private String recentPostTopicsTitle;
+  private Timestamp recentPostTime;
 }

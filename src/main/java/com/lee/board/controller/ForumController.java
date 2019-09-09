@@ -2,13 +2,10 @@ package com.lee.board.controller;
 
 import com.lee.board.model.Category;
 import com.lee.board.model.Discussion;
-import com.lee.board.model.RecentPostD;
 import com.lee.board.service.CategoryServiceI;
 import com.lee.board.service.DiscussionServiceI;
-import com.lee.board.service.RecentPostDServiceI;
 import com.lee.board.service.TopicServiceI;
 import com.lee.board.util.Util;
-import java.util.Iterator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,39 +17,38 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ForumController {
 
-  CategoryServiceI categoryService;
+  private CategoryServiceI categoryService;
 
-  DiscussionServiceI discussionService;
+  private DiscussionServiceI discussionService;
 
-  TopicServiceI topicService;
-
-  RecentPostDServiceI recentPostDService;
+  private TopicServiceI topicService;
 
   @Autowired
-  public ForumController(CategoryServiceI categoryService,
-      DiscussionServiceI discussionService, TopicServiceI topicService,
-      RecentPostDServiceI recentPostDService) {
+  public ForumController(
+      CategoryServiceI categoryService,
+      DiscussionServiceI discussionService,
+      TopicServiceI topicService) {
     this.categoryService = categoryService;
     this.discussionService = discussionService;
     this.topicService = topicService;
-    this.recentPostDService = recentPostDService;
   }
 
-  @RequestMapping(value = {"/","home"},method = RequestMethod.GET)
-  public String readAllForums(Model model){
+  @RequestMapping(
+      value = {"/", "home"},
+      method = RequestMethod.GET)
+  public String readAllForums(Model model) {
     List<Category> categoryList = categoryService.getCategoryList();
-    List<Discussion> discussionList = discussionService.getListByCategoryId(Util.getAllObjectId(categoryList));
-    model.addAttribute("categoryList",categoryList);
-    model.addAttribute("discussionList",discussionList);
-    model.addAttribute("recentPostDList",recentPostDService.getListByDiscussionId(Util.getAllObjectId(discussionList)));
+    List<Discussion> discussionList =
+        discussionService.getListByCategoryId(Util.getAllObjectId(categoryList));
+    model.addAttribute("categoryList", categoryList);
+    model.addAttribute("discussionList", discussionList);
     return null;
   }
 
-
-  @RequestMapping(value = "/forum/{discussionId}/page/{page}",method = RequestMethod.GET)
-  public String getDiscussionListById(Model model, @PathVariable long discussionId,@PathVariable(required = false) int page){
-    model.addAttribute("topicList",topicService.getListByDiscussionId(discussionId,page));
+  @RequestMapping(value = "/forum/{discussionId}/page/{page}", method = RequestMethod.GET)
+  public String getDiscussionListById(
+      Model model, @PathVariable long discussionId, @PathVariable(required = false) int page) {
+    model.addAttribute("topicList", topicService.getListByDiscussionId(discussionId, page));
     return null;
   }
-
 }

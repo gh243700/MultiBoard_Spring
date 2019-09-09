@@ -2,8 +2,6 @@
 
 drop table discussion_upload_file;
 drop table profile_img;
-drop table recent_post_D;
-drop table recent_post_T;
 drop table posts;
 drop table topics;
 drop table discussion;
@@ -19,7 +17,12 @@ create table member
     email      varchar(50) unique not null,
     joined     timestamp default sysdate,
     post_count number    default 0,
-    last_visit timestamp          null
+    last_visit timestamp          null,
+    profile_img_name varchar(235),
+    profile_img_size varchar(45),
+    profile_img_type varchar(500),
+    profile_img_data blob,
+    profile_img_upload_date timestamp
 );
 
 CREATE TABLE category
@@ -28,16 +31,18 @@ CREATE TABLE category
     title varchar(200) unique not null
 );
 
-
 create table discussion
 (
     id               number primary key,
     title            varchar(200) unique not null,
     description      varchar(200)        null,
     category_id      number references category (id),
-    total_post_count number default 0
+    total_post_count number default 0,
+    recent_post_id number null,
+    recent_post_member_id number null,
+    recent_post_topics_title varchar(200) null,
+    recent_post_time timestamp null
 );
-
 
 create table topics
 (
@@ -65,36 +70,6 @@ create table posts
     reply_step        number null,
     topic_id          number references topics (id),
     discussion_id     number not null
-);
-
-
-create table recent_post_D
-(
-    id            number primary key,
-    member_id     number                            not null,
-    post_id       number                            not null,
-    topic_title   varchar(200)                      not null,
-    discussion_id number references discussion (id) not null,
-    time          timestamp default sysdate
-);
-
-create table recent_post_t
-(
-    id        number primary key,
-    topics_id number references topics (id) not null,
-    time      timestamp default sysdate
-);
-
-
-create table profile_img
-(
-    id                number primary key,
-    file_name         varchar(235) not null,
-    file_size         varchar(45)  not null,
-    file_content_type varchar(500) not null,
-    file_data         blob         not null,
-    upload_date       Timestamp default sysdate,
-    member_id         number       not null
 );
 
 create table discussion_upload_file

@@ -7,8 +7,7 @@ public interface DiscussionRepositoryI {
 
   List<Discussion> getDiscussionListByCategoryId(long... id);
 
-  Discussion getDiscussionById(int id);
+  Discussion getDiscussionInfoById(long id);
 
   int updateDiscussionInfo(Discussion discussion);
-
 }

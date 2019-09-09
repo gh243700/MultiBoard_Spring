@@ -18,14 +18,10 @@ public class DiscussionServiceImpl implements DiscussionServiceI {
   }
 
   @Override
-  public int getPostCountById(int id) {
-    return discussionRepository.getDiscussionById(id).getPostCount();
-  }
-
-  @Override
   public int updatePostCount(int id) {
-    Discussion discussion = discussionRepository.getDiscussionById(id);
+    Discussion discussion = discussionRepository.getDiscussionInfoById(id);
     discussion.setPostCount(discussion.getPostCount() + 1);
     return discussionRepository.updateDiscussionInfo(discussion);
   }
+
 }
