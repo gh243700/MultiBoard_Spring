@@ -5,25 +5,39 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.HandlerAdapter;
+import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 /** @author Lee97 */
 @EnableWebMvc
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = "com.lee")
 public class WebConfig extends WebMvcConfigurationSupport {
+
   @Bean
-  public InternalResourceViewResolver resourceViewResolver() {
-    return new InternalResourceViewResolver(".jsp", "/WEB-INF/views");
+  public InternalResourceViewResolver viewResolver() {
+    InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+    viewResolver.setViewClass(JstlView.class);
+    viewResolver.setSuffix(".jsp");
+    viewResolver.setPrefix("/WEB-INF/views/");
+    return viewResolver;
   }
 
   @Override
   protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-    registry.addResourceHandler("/**").addResourceLocations("/WEB-INF/resources");
-    registry.addResourceHandler("/js/**").addResourceLocations("WEB-INF/resources/js/");
+    registry.addResourceHandler("/**").addResourceLocations("/WEB-INF/resources/");
+    registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/resources/js/");
+  }
+
+  @Override
+  protected void addViewControllers(ViewControllerRegistry registry) {
+    registry.addViewController("/").setViewName("index");
   }
 
   @Bean
@@ -32,6 +46,4 @@ public class WebConfig extends WebMvcConfigurationSupport {
     multipartResolver.setMaxUploadSize(6000000);
     return multipartResolver;
   }
-
-
 }

@@ -14,5 +14,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Category extends BaseModel {
+  private long id;
   private String title;
 }

@@ -14,6 +14,9 @@ public class DiscussionServiceImpl implements DiscussionServiceI {
 
   @Override
   public List<Discussion> getListByCategoryId(long... id) {
+    for (long i : id){
+      System.out.println(i+"-----------------------------------------------------");
+    }
     return discussionRepository.getDiscussionListByCategoryId(id);
   }
 

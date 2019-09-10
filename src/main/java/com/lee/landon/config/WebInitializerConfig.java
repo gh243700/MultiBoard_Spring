@@ -20,7 +20,9 @@ public class WebInitializerConfig implements WebApplicationInitializer {
     AnnotationConfigWebApplicationContext applicationContext =
         new AnnotationConfigWebApplicationContext();
     applicationContext.register(ApplicationConfig.class);
+    applicationContext.setConfigLocation("com.lee.landon.config");
     servletContext.addListener(new ContextLoaderListener(applicationContext));
+
 
     FilterRegistration.Dynamic filterRegistration =
         servletContext.addFilter("encodingFilter", CharacterEncodingFilter.class);

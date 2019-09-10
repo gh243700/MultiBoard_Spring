@@ -17,24 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ForumController {
 
-  private CategoryServiceI categoryService;
+  @Autowired private CategoryServiceI categoryService;
 
-  private DiscussionServiceI discussionService;
-
-  private TopicServiceI topicService;
-
-  @Autowired
-  public ForumController(
-      CategoryServiceI categoryService,
-      DiscussionServiceI discussionService,
-      TopicServiceI topicService) {
-    this.categoryService = categoryService;
-    this.discussionService = discussionService;
-    this.topicService = topicService;
-  }
+  @Autowired private DiscussionServiceI discussionService;
 
   @RequestMapping(
-      value = {"/", "home"},
+      value = {"/home"},
       method = RequestMethod.GET)
   public String readAllForums(Model model) {
     List<Category> categoryList = categoryService.getCategoryList();
@@ -42,13 +30,13 @@ public class ForumController {
         discussionService.getListByCategoryId(Util.getAllObjectId(categoryList));
     model.addAttribute("categoryList", categoryList);
     model.addAttribute("discussionList", discussionList);
-    return null;
+    return "index";
   }
 
   @RequestMapping(value = "/forum/{discussionId}/page/{page}", method = RequestMethod.GET)
   public String getDiscussionListById(
       Model model, @PathVariable long discussionId, @PathVariable(required = false) int page) {
-    model.addAttribute("topicList", topicService.getListByDiscussionId(discussionId, page));
+    //model.addAttribute("topicList", topicService.getListByDiscussionId(discussionId, page));
     return null;
   }
 }

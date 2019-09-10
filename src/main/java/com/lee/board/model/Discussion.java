@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 @Builder
 public class Discussion extends BaseModel {
+  private long id;
   private String title;
   private String description;
   private long categoryId;
