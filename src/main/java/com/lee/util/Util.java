@@ -1,4 +1,4 @@
-package com.lee.member.util;
+package com.lee.util;
 
 import java.io.File;
 import java.io.FileInputStream;

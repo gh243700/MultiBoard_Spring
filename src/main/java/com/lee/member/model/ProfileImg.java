@@ -18,6 +18,7 @@ import lombok.ToString;
 @Builder
 @ToString
 public class ProfileImg {
+  private long id;
   private String fileName;
   private String fileSize;
   private String type;

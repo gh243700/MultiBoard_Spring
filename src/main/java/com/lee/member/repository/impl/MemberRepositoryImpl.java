@@ -4,13 +4,13 @@ import com.lee.member.model.Member;
 import com.lee.member.model.ProfileImg;
 import com.lee.member.repository.MemberRepositoryI;
 import java.sql.Timestamp;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Repository(value = "dddd")
-
+@Repository
 public class MemberRepositoryImpl implements MemberRepositoryI {
 
   @Autowired private JdbcTemplate jdbcTemplate;
@@ -34,6 +34,26 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
             + "FROM member "
             + "WHERE id = ?";
     return jdbcTemplate.queryForObject(sql, ProfileImg.class, id);
+  }
+
+  @Override
+  public List<ProfileImg> getProfileImgListById(long... ids) {
+    String sql =
+        "SELECT "
+            + "profile_img_name AS fileName,"
+            + "profile_img_size AS fileSize,"
+            + "profile_img_type AS type,"
+            + "profile_img_data AS fileData,"
+            + "profile_img_upload_date AS uploadDate "
+            + "FROM member "
+            + "WHERE id IN(";
+    String tmp = "";
+    for (int i = 0; i < ids.length; i++) {
+      tmp += "," + ids[i] + "";
+    }
+    tmp = tmp.replaceFirst(",", "");
+    sql = sql.concat(tmp + ")");
+    return jdbcTemplate.queryForList(sql, ProfileImg.class);
   }
 
   @Override
@@ -82,6 +102,20 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
     String sql =
         "SELECT id,username,password,email,joined,post_count,last_visit FROM member WHERE id=?";
     return jdbcTemplate.queryForObject(sql, Member.class, id);
+  }
+
+  @Override
+  public List<Member> getMemberListById(long... ids) {
+    String sql =
+        "SELECT id,username,password,email,"
+            + "joined,post_count AS postCount,last_visit lastVisit FROM member WHERE id IN(";
+    String tmp = "";
+    for (int i = 0; i < ids.length; i++) {
+      tmp += "," + ids[i] + "";
+    }
+    tmp = tmp.replaceFirst(",", "");
+    sql += tmp + ")";
+    return jdbcTemplate.queryForList(sql, Member.class);
   }
 
   @Override

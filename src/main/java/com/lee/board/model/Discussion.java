@@ -23,6 +23,7 @@ public class Discussion extends BaseModel {
 
   private long recentPostId;
   private long recentPostMemberId;
+  private String recentPostMemberName;
   private long recentPostTopicsId;
   private String recentPostTopicsTitle;
   private Timestamp recentPostTime;

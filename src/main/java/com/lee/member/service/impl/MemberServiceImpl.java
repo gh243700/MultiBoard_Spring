@@ -4,7 +4,7 @@ import com.lee.member.model.Member;
 import com.lee.member.model.ProfileImg;
 import com.lee.member.repository.MemberRepositoryI;
 import com.lee.member.service.MemberServiceI;
-import com.lee.member.util.Util;
+import com.lee.util.Util;
 import java.io.IOException;
 import java.sql.Timestamp;
 import org.springframework.beans.factory.annotation.Autowired;

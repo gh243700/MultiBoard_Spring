@@ -1,5 +1,6 @@
 package com.lee.member.model;
 
+import com.lee.board.model.BaseModel;
 import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,12 +19,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @ToString
-public class Member {
+public class Member extends BaseModel {
   private long id;
   private String username;
   private String password;
   private String email;
-  private Timestamp joined;
+  private String joined;
   private int postCount;
   private Timestamp lastVisit;
 
