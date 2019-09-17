@@ -25,8 +25,6 @@ public class DiscussionRepositoryImpl implements DiscussionRepositoryI {
             + "total_post_count AS postCount,"
             + "recent_post_id AS recentPostId,"
             + "recent_post_member_id AS recentPostMemberId,"
-            + "recent_post_member_name AS recentPostMemberName,"
-            + "recent_post_topics_id AS recentPostTopicsId,"
             + "recent_post_topics_title AS recentPostTopicsTitle,"
             + "recent_post_time AS recentPostTime "
             + "FROM discussion WHERE category_id IN(";
@@ -39,24 +37,17 @@ public class DiscussionRepositoryImpl implements DiscussionRepositoryI {
     sql += temp;
     return jdbcTemplate.query(
         sql,
-        new RowMapper<Discussion>() {
-          @Override
-          public Discussion mapRow(ResultSet resultSet, int i) throws SQLException {
-            return Discussion.builder()
-                .id(resultSet.getLong(1))
-                .title(resultSet.getString(2))
-                .description(resultSet.getString(3))
-                .categoryId(resultSet.getLong(4))
-                .postCount(resultSet.getInt(5))
-                .recentPostId(resultSet.getLong(6))
-                .recentPostMemberId(resultSet.getLong(7))
-                .recentPostMemberName(resultSet.getString(8))
-                .recentPostTopicsId(resultSet.getLong(9))
-                .recentPostTopicsTitle(resultSet.getString(10))
-                .recentPostTime(resultSet.getTimestamp(11))
-                .build();
-          }
-        });
+        (resultSet, i) -> Discussion.builder()
+            .id(resultSet.getLong(1))
+            .title(resultSet.getString(2))
+            .description(resultSet.getString(3))
+            .categoryId(resultSet.getLong(4))
+            .postCount(resultSet.getInt(5))
+            .recentPostId(resultSet.getLong(6))
+            .recentPostMemberId(resultSet.getLong(7))
+            .recentPostTopicsTitle(resultSet.getString(8))
+            .recentPostTime(resultSet.getTimestamp(9))
+            .build());
   }
 
   @Override
@@ -69,8 +60,6 @@ public class DiscussionRepositoryImpl implements DiscussionRepositoryI {
             + "total_post_count AS postCount,"
             + "recent_post_id AS recentPostId,"
             + "recent_post_member_id AS recentPostMemberId,"
-            + "recent_post_member_name AS recentPostMemberName,"
-            + "recent_post_topics_id AS recentPostTopicsId,"
             + "recent_post_topics_title AS recentPostTopicsTitle,"
             + "recent_post_time AS recentPostTime "
             + "FROM discussion "
@@ -88,8 +77,6 @@ public class DiscussionRepositoryImpl implements DiscussionRepositoryI {
             + "total_post_count=?,"
             + "recent_post_id = ? ,"
             + "recent_post_member_id = ?,"
-            + "recent_post_member_name = ?,"
-            + "recent_post_topics_id = ?,"
             + "recent_post_topics_title = ?,"
             + "recent_post_time = ? "
             + "WHERE id = ?";
@@ -101,8 +88,6 @@ public class DiscussionRepositoryImpl implements DiscussionRepositoryI {
         discussion.getPostCount(),
         discussion.getRecentPostId(),
         discussion.getRecentPostMemberId(),
-        discussion.getRecentPostMemberName(),
-        discussion.getRecentPostTopicsId(),
         discussion.getRecentPostTopicsTitle(),
         discussion.getRecentPostTime(),
         discussion.getId());

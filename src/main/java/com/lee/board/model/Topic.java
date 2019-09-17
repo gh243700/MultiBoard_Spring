@@ -24,10 +24,11 @@ public class Topic {
   private int replyNumber;
   private int viewCount;
   private long discussionId;
-  private int postCount;
 
   private long lastPostId;
   private long lastPostMemberId;
   private String lastPostMemberName;
+
   ProfileImg lastPostMemberProfileImg;
+
 }

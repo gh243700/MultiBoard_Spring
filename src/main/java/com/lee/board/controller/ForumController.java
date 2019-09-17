@@ -2,19 +2,21 @@ package com.lee.board.controller;
 
 import com.lee.board.model.Category;
 import com.lee.board.model.Discussion;
+import com.lee.board.model.Post;
 import com.lee.board.service.CategoryServiceI;
 import com.lee.board.service.DiscussionServiceI;
 import com.lee.board.service.TopicServiceI;
 import com.lee.util.CommonUtil;
-import com.lee.util.Util;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ForumController {
@@ -50,5 +52,30 @@ public class ForumController {
     model.addAttribute(
         "topicList", topicServiceI.getListByDiscussionId(discussionId, sortby, page));
     return null;
+  }
+
+  @RequestMapping(
+      value = {"/topic/{topicId}", "/topic/{topicId}/page/{page}"},
+      method = RequestMethod.GET)
+  public String getPostListById(
+      Model model, @PathVariable long topicId, @PathVariable(required = false) String page) {
+    model.addAttribute(
+        "topics",
+        topicServiceI.getPostListByTopicId(
+            topicId, Integer.parseInt(StringUtils.isEmpty(page) ? "1" : page) - 1));
+    return null;
+  }
+
+  @RequestMapping(
+      value = {"/topic/{topicId}/*/"},
+      method = RequestMethod.POST)
+  public String submitPostAtTopicId(
+      @PathVariable long topicId, Post post, RedirectAttributes redirectAttributes) {
+    int att = 0;
+    if (topicServiceI.insertPost(post, topicId) != 0) {
+      att = 1;
+    }
+    redirectAttributes.addAttribute("value", att);
+    return "redirect:/topic/" + topicId;
   }
 }

@@ -1,6 +1,8 @@
 package com.lee.board.model;
 
+import com.lee.member.model.Member;
 import java.sql.Timestamp;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,8 +25,8 @@ public class Discussion extends BaseModel {
 
   private long recentPostId;
   private long recentPostMemberId;
-  private String recentPostMemberName;
-  private long recentPostTopicsId;
   private String recentPostTopicsTitle;
   private Timestamp recentPostTime;
+
+  private Member member;
 }

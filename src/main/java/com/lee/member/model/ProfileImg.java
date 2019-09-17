@@ -25,3 +25,4 @@ public class ProfileImg {
   private byte[] fileData;
   private Timestamp uploadDate;
 }
+

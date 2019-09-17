@@ -1,5 +1,7 @@
 package com.lee.board.model;
 
+import com.lee.member.model.Member;
+import com.lee.member.model.ProfileImg;
 import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,10 +26,14 @@ public class Post {
   private Timestamp writeDate;
   private Timestamp edited;
   private int reactLike;
-  private int reactFunny;
+  private int reactAgree;
   private int reactInformative;
   private int reactTotalCount;
   private int replyStep;
   private long topicId;
   private long discussionId;
+
+  private ProfileImg profileImg;
+  private Member member;
+  private Topic topicInfo;
 }
