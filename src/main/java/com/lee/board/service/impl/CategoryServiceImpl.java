@@ -20,4 +20,9 @@ public class CategoryServiceImpl implements CategoryServiceI {
   public List<Category> getCategoryList() {
     return categoryRepository.getCategoryList();
   }
+
+  @Override
+  public Category getCategoryById(long id) {
+    return categoryRepository.getCategoryById(id);
+  }
 }

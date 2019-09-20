@@ -2,6 +2,7 @@ package com.lee.board.repository;
 
 import com.lee.board.model.Discussion;
 import java.util.List;
+import java.util.Map;
 
 public interface DiscussionRepositoryI {
 

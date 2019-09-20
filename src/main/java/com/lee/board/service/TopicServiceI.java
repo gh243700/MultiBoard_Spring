@@ -10,5 +10,5 @@ public interface TopicServiceI {
 
   List<Post> getPostListByTopicId(long topicId, int page);
 
-  List<Topic> getListByDiscussionId(long id, String sortby, int page);
+  List<Topic> getListByDiscussionId(long id, String sortby, String page);
 }

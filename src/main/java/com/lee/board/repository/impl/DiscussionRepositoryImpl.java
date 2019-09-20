@@ -2,9 +2,14 @@ package com.lee.board.repository.impl;
 
 import com.lee.board.model.Discussion;
 import com.lee.board.repository.DiscussionRepositoryI;
+import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -15,56 +20,41 @@ public class DiscussionRepositoryImpl implements DiscussionRepositoryI {
 
   @Autowired private JdbcTemplate jdbcTemplate;
 
+  private class Mapper implements RowMapper<Discussion> {
+    @Override
+    public Discussion mapRow(ResultSet resultSet, int i) throws SQLException {
+      return Discussion.builder()
+          .id(resultSet.getLong("id"))
+          .title(resultSet.getString("title"))
+          .description(resultSet.getString("description"))
+          .categoryId(resultSet.getLong("category_Id"))
+          .postCount(resultSet.getInt("total_post_count"))
+          .recentPostId(resultSet.getLong("recent_post_id"))
+          .recentPostMemberId(resultSet.getLong("recent_post_member_id"))
+          .recentPostTopicsTitle(resultSet.getString("recent_post_topics_title"))
+          .recentPostTime(resultSet.getTimestamp("recent_post_time"))
+          .build();
+    }
+  }
+
   @Override
   public List<Discussion> getDiscussionListByCategoryId(long... id) {
-    String sql =
-        "SELECT id,"
-            + "title,"
-            + "description,"
-            + "category_id AS categoryId,"
-            + "total_post_count AS postCount,"
-            + "recent_post_id AS recentPostId,"
-            + "recent_post_member_id AS recentPostMemberId,"
-            + "recent_post_topics_title AS recentPostTopicsTitle,"
-            + "recent_post_time AS recentPostTime "
-            + "FROM discussion WHERE category_id IN(";
+    String sql = "SELECT *" + "FROM discussion WHERE " + "category_id IN(";
     String temp = "";
     for (int i = 0; i < id.length; i++) {
-      temp += "," + i + "";
+      temp += "," + id[i] + "";
     }
     temp = temp.replaceFirst(",", "");
     temp += ")";
     sql += temp;
-    return jdbcTemplate.query(
-        sql,
-        (resultSet, i) -> Discussion.builder()
-            .id(resultSet.getLong(1))
-            .title(resultSet.getString(2))
-            .description(resultSet.getString(3))
-            .categoryId(resultSet.getLong(4))
-            .postCount(resultSet.getInt(5))
-            .recentPostId(resultSet.getLong(6))
-            .recentPostMemberId(resultSet.getLong(7))
-            .recentPostTopicsTitle(resultSet.getString(8))
-            .recentPostTime(resultSet.getTimestamp(9))
-            .build());
+
+    return jdbcTemplate.query(sql, new Mapper());
   }
 
   @Override
   public Discussion getDiscussionInfoById(long id) {
-    String sql =
-        "SELECT id,"
-            + "title,"
-            + "description,"
-            + "category_id AS categoryId,"
-            + "total_post_count AS postCount,"
-            + "recent_post_id AS recentPostId,"
-            + "recent_post_member_id AS recentPostMemberId,"
-            + "recent_post_topics_title AS recentPostTopicsTitle,"
-            + "recent_post_time AS recentPostTime "
-            + "FROM discussion "
-            + "WHERE id = ?";
-    return jdbcTemplate.queryForObject(sql, Discussion.class, id);
+    String sql = "SELECT *" + "FROM discussion " + "WHERE id = ?";
+    return jdbcTemplate.queryForObject(sql, new Mapper(), id);
   }
 
   @Override
@@ -79,7 +69,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepositoryI {
             + "recent_post_member_id = ?,"
             + "recent_post_topics_title = ?,"
             + "recent_post_time = ? "
-            + "WHERE id = ?";
+            + "WHERE id=?";
     return jdbcTemplate.update(
         sql,
         discussion.getTitle(),

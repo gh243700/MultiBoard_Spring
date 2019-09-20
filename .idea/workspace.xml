@@ -8,18 +8,79 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc1e0a1c-1771-4c46-993a-bdd9b75e0754" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tool/ckeditor/samples/old/htmlwriter/assets/outputforflash/outputforflash.fla" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tool/ckeditor/samples/toolbarconfigurator/font/fontello.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tool/ckeditor/samples/toolbarconfigurator/font/fontello.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/navbar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/forum/forum.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/forum/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/forum/subForum.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/forum/submitNewTopic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/controller/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/controller/ForumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Discussion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Discussion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Post.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/model/Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/TopicRepositoryI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/TopicRepositoryI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/CategoryRepositoryI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/CategoryRepositoryI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/DiscussionRepositoryI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/DiscussionRepositoryI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/CategoryRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/CategoryRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/DiscussionRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/DiscussionRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/TopicRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/repository/impl/TopicRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/service/CategoryServiceI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/CategoryServiceI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/service/DiscussionServiceI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/DiscussionServiceI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/service/TopicServiceI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/TopicServiceI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/service/impl/DiscussionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/impl/DiscussionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/board/service/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/board/service/impl/TopicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/member/model/ProfileImg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/member/model/ProfileImg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database/DatabaseDDL.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database/DatabaseDDL.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/util/CommonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/util/CommonUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/controller/ForumController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Discussion$DiscussionBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Discussion$DiscussionBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Discussion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Discussion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Post$PostBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Post$PostBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Topic$TopicBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Topic$TopicBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/model/Topic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/CategoryRepositoryI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/CategoryRepositoryI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/TopicRepositoryI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/TopicRepositoryI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/CategoryRepositoryImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/CategoryRepositoryImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/CategoryRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/CategoryRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/DiscussionRepositoryImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/DiscussionRepositoryImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/DiscussionRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/DiscussionRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/TopicRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/repository/impl/TopicRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/CategoryServiceI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/CategoryServiceI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/DiscussionServiceI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/DiscussionServiceI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/TopicServiceI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/TopicServiceI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/impl/DiscussionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/impl/DiscussionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/impl/TopicServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/board/service/impl/TopicServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/util/CommonUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/com/lee/util/CommonUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/database/DatabaseDDL.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/classes/database/DatabaseDDL.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MultiBoard/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/controller/ForumController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Discussion$DiscussionBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Discussion$DiscussionBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Discussion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Discussion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Post$PostBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Post$PostBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Topic$TopicBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Topic$TopicBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/model/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/model/Topic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/repository/CategoryRepositoryI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/repository/CategoryRepositoryI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/repository/TopicRepositoryI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/repository/TopicRepositoryI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/CategoryRepositoryImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/CategoryRepositoryImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/CategoryRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/CategoryRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/DiscussionRepositoryImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/DiscussionRepositoryImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/DiscussionRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/DiscussionRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/TopicRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/repository/impl/TopicRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/service/CategoryServiceI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/service/CategoryServiceI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/service/DiscussionServiceI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/service/DiscussionServiceI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/service/TopicServiceI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/service/TopicServiceI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/DiscussionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/DiscussionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/TopicServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/board/service/impl/TopicServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/util/CommonUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/util/CommonUtil.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,8 +137,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="HTML File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -102,10 +164,11 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="oracle&#10;mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Ex_Files_Learning_Spring_Boot/Exercise Files/Chapter 5/05_02/05_02_end/reservations" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/tool" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -115,25 +178,29 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15059347" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/tool" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/forum" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.lee.board.service" />
       <recent name="com.lee.board.repository" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/tool" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.lee.board.repository.impl" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
-      <recent name="$PROJECT_DIR$/src/main/webapp" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -149,6 +216,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 8">
+    <configuration name="ForumController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lee.board.controller.ForumController" />
+      <module name="MultiBoard_Spring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lee.board.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lee.board.util.Util" />
       <module name="MultiBoard" />
@@ -265,10 +345,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.Util" />
+      <item itemvalue="Application.ForumController" />
       <item itemvalue="Tomcat Server.Tomcat 8" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ForumController" />
         <item itemvalue="Application.Util" />
       </list>
     </recent_temporary>
@@ -280,12 +362,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3d2203fa" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3d2203fa" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5dbb5dc9" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@25a95589" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -321,7 +398,11 @@
       <workItem from="1568126411799" duration="1555000" />
       <workItem from="1568161488575" duration="11505000" />
       <workItem from="1568173175739" duration="13152000" />
-      <workItem from="1568679651995" duration="19905000" />
+      <workItem from="1568679651995" duration="27512000" />
+      <workItem from="1568769652499" duration="22114000" />
+      <workItem from="1568852913424" duration="22083000" />
+      <workItem from="1568939177296" duration="5297000" />
+      <workItem from="1568944991478" duration="15725000" />
     </task>
     <task id="LOCAL-00001" summary="Fix schema">
       <created>1567997100899</created>
@@ -389,6 +470,20 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix schema" />
     <option name="LAST_COMMIT_MESSAGE" value="Fix schema" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/forum/home.jsp</url>
+          <line>27</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MultiBoard_Spring$Tomcat_8.ic" NAME="Tomcat 8 Coverage Results" MODIFIED="1568949317530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="regexState">
     <option name="map">

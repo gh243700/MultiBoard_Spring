@@ -45,7 +45,6 @@ public class TopicServiceImpl implements TopicServiceI {
 
       topic.setLastPostId(post.getId());
       topic.setLastPostMemberId(memberId);
-      topic.setLastPostMemberName(memberRepositoryI.getMemberById(memberId).getUsername());
       topic.setReplyNumber(topic.getReplyNumber() + 1);
 
       member.setPostCount(member.getPostCount() + 1);
@@ -78,7 +77,7 @@ public class TopicServiceImpl implements TopicServiceI {
   }
 
   @Override
-  public List<Topic> getListByDiscussionId(long id, String sortby, int page) {
+  public List<Topic> getListByDiscussionId(long id, String sortby, String val) {
     String[] sortArr = {"last_post", "start_date", "views", "posts"};
     if (sortby != null) {
       for (String s : sortArr) {
@@ -87,6 +86,7 @@ public class TopicServiceImpl implements TopicServiceI {
         }
       }
     }
+    int page = val == null ? 1 : Integer.parseInt(val);
     int start = page * 25;
     int end = start + 25;
 
@@ -95,10 +95,14 @@ public class TopicServiceImpl implements TopicServiceI {
       topics.forEach(
           topic -> {
             if (topic != null) {
+              topic.setWriterInfo(memberRepositoryI.getMemberById(topic.getWriter()));
+              Member recentPostMember =
+                  memberRepositoryI.getMemberById(topic.getLastPostMemberId());
               ProfileImg profileImg =
                   memberRepositoryI.getProfileImgById(topic.getLastPostMemberId());
-              if (profileImg != null) {
-                topic.setLastPostMemberProfileImg(profileImg);
+              if (profileImg != null && recentPostMember != null) {
+                recentPostMember.setProfileImg(profileImg);
+                topic.setLastPostMemberInfo(recentPostMember);
               }
             }
           });

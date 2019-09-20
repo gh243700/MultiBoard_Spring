@@ -1,5 +1,6 @@
 package com.lee.board.model;
 
+import com.lee.member.model.Member;
 import com.lee.member.model.ProfileImg;
 import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
@@ -19,16 +20,17 @@ public class Topic {
   private long id;
   private String title;
   private long writer;
-  private String writerName;
   private Timestamp writeDate;
   private int replyNumber;
   private int viewCount;
   private long discussionId;
+  private int postCount;
 
   private long lastPostId;
   private long lastPostMemberId;
-  private String lastPostMemberName;
+  private Timestamp lastPostDate;
 
-  ProfileImg lastPostMemberProfileImg;
 
+  private Member writerInfo;
+  private Member lastPostMemberInfo;
 }

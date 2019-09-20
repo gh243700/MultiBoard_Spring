@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://kit.fontawesome.com/7827e8eaaf.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+  <title>Forum</title>
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><i class="far fa-comment"></i>Forums <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-server"></i>All Activity</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Activity Streams
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Unread Content</a>
+          <a class="dropdown-item" href="#">Content I Started</a>
+          <a href="" class="dropdown-item">Content I Follow</a>
+          <a href="" class="dropdown-item">Members I Follow</a>
+          <a href="" class="dropdown-item">Content I Posted In</a>
+        </div>
+      </li>
+    </ul>
+    <!--show when login-->
+    <!--    <div class="form-inline my-2 my-lg-0">-->
+    <!--      <button class="btn btn-secondary rounded-circle mr-1"><i class="far fa-bell"></i>-->
+    <!--      </button>-->
+    <!--      <button class="btn btn-secondary rounded-circle mr-1"><i class="fas fa-envelope"></i>-->
+    <!--      </button>-->
+    <!--      <div class="dropdown">-->
+    <!--        <a class="btn btn-secondary btn-sm dropdown-toggle rounded-pill" href="#" role="button"-->
+    <!--           id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+    <!--          <img src="..." alt="..." class="img-thumbnail rounded-circle">-->
+    <!--          UserName-->
+    <!--        </a>-->
+    <!--        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+    <!--          <a class="dropdown-item" href="#">Profile</a>-->
+    <!--          <a class="dropdown-item" href="#">My Activity</a>-->
+    <!--          <a class="dropdown-item" href="#">Update Status</a>-->
+    <!--          <a href="" class="dropdown-item">Manage Followed Content</a>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--show when login-->
+    <!-- else -->
+    <div class="form-inline">
+      <div class="dropdown mr-2">
+        <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <small>Existing user? Sign In</small>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <div class="col">
+            <form class="px-1 py-2">
+              <h5>SIGN IN</h5>
+              <div class="form-group  mt-4">
+                <label for="exampleDropdownFormEmail1"></label>
+                <input type="email" class="form-control" id="exampleDropdownFormEmail1"
+                       placeholder="Email or Display Name">
+              </div>
+              <div class="form-group  mt-2">
+                <label for="exampleDropdownFormPassword1"></label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1"
+                       placeholder="Password">
+              </div>
+              <div class="form-group mt-2">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-danger btn-block mt-2">Sign in</button>
+              <div class="d-flex flex-row-reverse mt-2">
+                <a href=""><small style="color: darkgray">Forgot your password?</small></a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- sign up-->
+      <button type="button" class="btn btn-danger rounded-pill" data-toggle="modal"
+              data-target="#signup">
+        SIGN UP
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 class="modal-title">Sign Up</h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body mt-2">
+              <div class="row">
+                <div class="col-8">
+                  <h5>Get started faster</h5>
+                  <button class="btn btn-primary btn-block"><i class="fab fa-google mr-3"></i>Sign
+                    in with Google
+                  </button>
+                </div>
+              </div>
+              <div class="mt-4 p">
+                <form class="px-2 py-1" action="">
+                  <div class="form-group mt-2 row">
+                    <label for="DisplayName">Display Name</label>
+                    <input type="text" class="form-control mt-2 col-12" id="DisplayName">
+                  </div>
+                  <div class="form-group mt-2 row">
+                    <label for="EmailAddress">Email Address</label>
+                    <input type="email" class="form-control mt-2 col-12" id="EmailAddress">
+                  </div>
+                  <div class="form-group mt-2 row">
+                    <label for="ConfirmEmailAddress">Confirm Email Address</label>
+                    <input type="email" class="form-control mt-2 col-12" id="ConfirmEmailAddress">
+                  </div>
+                  <div class="form-group mt-2 row">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control mt-2 col-12" id="Password">
+                  </div>
+                  <div class="form-group mt-2 row">
+                    <label for="ConfirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control mt-2 col-12" id="ConfirmPassword">
+                  </div>
+                  <div class="custom-control custom-checkbox mt-3">
+                    <input type="checkbox" class="custom-control-input" id="Validation1" required>
+                    <label class="custom-control-label" for="Validation1">I agree to the Terms of
+                      Use and Privacy Policy </label>
+                    <div class="invalid-feedback">required</div>
+                  </div>
+
+                  <input type="submit" class="btn btn-danger btn-block mt-3">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- sign up-->
+      </div>
+      <!-- else -->
+    </div>
+  </div>
+</nav>
+<div class="container" style="margin-top: 5rem">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card" style="height: 30rem">
+        <div class="card-header">Sign In</div>
+        <div class="card-body" style="margin-top: 2rem">
+          <form action="" method="">
+            <button class="btn btn-primary mt-3 mb-3" ><i class="fab fa-google"></i></button>
+            <div class="form-group row">
+              <label for="email_address" class="col-md-4 col-form-label text-md-right">
+                Email or Display Name</label>
+              <div class="col-md-6">
+                <input type="text" id="email_address" class="form-control" name="email-address"
+                       required autofocus>
+              </div>
+            </div>
+            <div class="form-group row mt-3">
+              <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+              <div class="col-md-6">
+                <input type="password" id="password" class="form-control" name="password" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-6 offset-md-4">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="remember"> Remember Me
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 offset-md-4">
+
+              <button type="submit" class="btn btn-danger">
+                Sign In
+              </button>
+              <a href="#" class="btn btn-link" style="color: black">
+                Forgot Your Password?
+              </a>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<footer class="text-center">
+  <small>
+    Sample Project
+    <br>
+    Powered by Springframework
+  </small>
+</footer>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

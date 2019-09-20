@@ -16,14 +16,25 @@ public class CategoryRepositoryImpl implements CategoryRepositoryI {
 
   @Autowired private JdbcTemplate jdbcTemplate;
 
+  private class Mapper implements RowMapper<Category> {
+    @Override
+    public Category mapRow(ResultSet resultSet, int i) throws SQLException {
+      return Category.builder()
+          .id(resultSet.getLong("id"))
+          .title(resultSet.getString("title"))
+          .build();
+    }
+  }
+
   @Override
   public List<Category> getCategoryList() {
-    String sql = "SELECT id,title FROM category ORDER BY id";
-    return jdbcTemplate.query(sql, new RowMapper<Category>() {
-      @Override
-      public Category mapRow(ResultSet resultSet, int i) throws SQLException {
-        return Category.builder().id(resultSet.getLong(1)).title(resultSet.getString(2)).build();
-      }
-    });
+    String sql = "SELECT * FROM category ORDER BY id";
+    return jdbcTemplate.query(sql, new Mapper());
+  }
+
+  @Override
+  public Category getCategoryById(long id) {
+    String sql = "SELECT * FROM category WHERE id = ?";
+    return jdbcTemplate.queryForObject(sql, new Mapper(), id);
   }
 }

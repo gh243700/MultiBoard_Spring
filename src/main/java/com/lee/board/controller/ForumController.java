@@ -7,7 +7,9 @@ import com.lee.board.service.CategoryServiceI;
 import com.lee.board.service.DiscussionServiceI;
 import com.lee.board.service.TopicServiceI;
 import com.lee.util.CommonUtil;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,30 +30,33 @@ public class ForumController {
   @Autowired private TopicServiceI topicServiceI;
 
   @RequestMapping(
-      value = {"/home"},
+      value = {"/home", ""},
       method = RequestMethod.GET)
   public String readAllForums(Model model) {
     List<Category> categoryList = categoryService.getCategoryList();
-    List<Discussion> discussionList =
-        discussionService.getListByCategoryId(CommonUtil.getAllObjectId(categoryList));
+    List<Discussion> discussionList = discussionService.getListByCategoryId(CommonUtil.getAllObjectId(categoryList));
     model.addAttribute("categoryList", categoryList);
-    model.addAttribute("discussionList", discussionList);
-    return "index";
+    model.addAttribute(
+        "discussionList",discussionList);
+    return "forum/home";
   }
 
   @RequestMapping(
-      value = {"/forum/{discussionId}/page/{page}", "/forum/{discussionId}"},
+      value = {"main/forum/{discussionId}/page/{page}", "main/forum/page/{discussionId}"},
       method = RequestMethod.GET)
   public String getDiscussionListById(
       Model model,
       @PathVariable long discussionId,
-      @PathVariable(required = false) int page,
+      @PathVariable(required = false) String page,
       @RequestParam(value = "sortby", required = false, defaultValue = "title") String sortby,
       @RequestParam(value = "sortdirection", required = false, defaultValue = "DESC")
           String sortdirection) {
+    Discussion discussion = discussionService.getDiscussionById(discussionId);
+    model.addAttribute("discussionInfo",discussion);
+    model.addAttribute("categoryInfo",categoryService.getCategoryById(discussion.getCategoryId()));
     model.addAttribute(
         "topicList", topicServiceI.getListByDiscussionId(discussionId, sortby, page));
-    return null;
+    return "forum/forum";
   }
 
   @RequestMapping(
@@ -59,6 +64,7 @@ public class ForumController {
       method = RequestMethod.GET)
   public String getPostListById(
       Model model, @PathVariable long topicId, @PathVariable(required = false) String page) {
+
     model.addAttribute(
         "topics",
         topicServiceI.getPostListByTopicId(
