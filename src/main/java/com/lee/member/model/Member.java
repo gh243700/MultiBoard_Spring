@@ -24,9 +24,9 @@ public class Member extends BaseModel {
   private String username;
   private String password;
   private String email;
-  private String joined;
+  private Timestamp joined;
   private int postCount;
   private Timestamp lastVisit;
 
-  private ProfileImg profileImg;
+  private String profileImg;
 }

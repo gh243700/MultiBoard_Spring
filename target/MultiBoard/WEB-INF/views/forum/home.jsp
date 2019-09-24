@@ -37,7 +37,7 @@
                                         <i class="far fa-comments"></i>
                                     </div>
                                 </div>
-                                <a href="main/forum/page/<c:out value="${discussion.id}"/>" class="col-7"
+                                <a href="main/forum/<c:out value="${discussion.id}"/>" class="col-7"
                                    style="text-decoration: none; color: black">
                                     <h5 class="card-title"><c:out value="${discussion.title}"/></h5>
                                     <p class="card-text"><c:out value="${discussion.description}"/></p>
@@ -136,4 +136,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
+<!-- footer-->
+<jsp:include page="../common/footer.jsp"/>
 </html>

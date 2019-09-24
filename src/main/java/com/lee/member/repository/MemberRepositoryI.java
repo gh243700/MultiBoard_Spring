@@ -8,11 +8,6 @@ public interface MemberRepositoryI {
 
   int insertMember(Member member);
 
-  ProfileImg getProfileImgById(long id);
-
-  List<ProfileImg> getProfileImgListById(long... ids);
-
-  int insertMemberProfileImg(long memberId, ProfileImg profileImg);
 
   Integer checkUserExists(String value, String password);
 
@@ -28,5 +23,4 @@ public interface MemberRepositoryI {
 
   int updateMemberInfo(Member member);
 
-  Integer getMaxMemberId();
 }

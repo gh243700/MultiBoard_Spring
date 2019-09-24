@@ -3,10 +3,14 @@ package com.lee.member.repository.impl;
 import com.lee.member.model.Member;
 import com.lee.member.model.ProfileImg;
 import com.lee.member.repository.MemberRepositoryI;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -15,71 +19,41 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
 
   @Autowired private JdbcTemplate jdbcTemplate;
 
+  private class MemberMapper implements RowMapper<Member> {
+
+    @Override
+    public Member mapRow(ResultSet resultSet, int i) throws SQLException {
+      return Member.builder()
+          .id(resultSet.getLong("id"))
+          .username(resultSet.getString("username"))
+          .password(resultSet.getString("password"))
+          .email(resultSet.getString("email"))
+          .joined(resultSet.getTimestamp("joined"))
+          .postCount(resultSet.getInt("post_count"))
+          .lastVisit(resultSet.getTimestamp("last_visit"))
+          .build();
+    }
+  }
+
   @Override
   public int insertMember(Member member) {
-    String sql = "INSERT INTO member (id,username,password,email) VALUES(?,?,?,?)";
-    return jdbcTemplate.update(
-        sql, member.getId(), member.getUsername(), member.getPassword(), member.getEmail());
-  }
-
-  @Override
-  public ProfileImg getProfileImgById(long id) {
-    String sql =
-        "SELECT "
-            + "profile_img_name AS fileName,"
-            + "profile_img_size AS fileSize,"
-            + "profile_img_type AS type,"
-            + "profile_img_data AS fileData,"
-            + "profile_img_upload_date AS uploadDate "
-            + "FROM member "
-            + "WHERE id = ?";
-    return jdbcTemplate.queryForObject(sql, ProfileImg.class, id);
-  }
-
-  @Override
-  public List<ProfileImg> getProfileImgListById(long... ids) {
-    String sql =
-        "SELECT "
-            + "profile_img_name AS fileName,"
-            + "profile_img_size AS fileSize,"
-            + "profile_img_type AS type,"
-            + "profile_img_data AS fileData,"
-            + "profile_img_upload_date AS uploadDate "
-            + "FROM member "
-            + "WHERE id IN(";
-    String tmp = "";
-    for (int i = 0; i < ids.length; i++) {
-      tmp += "," + ids[i] + "";
-    }
-    tmp = tmp.replaceFirst(",", "");
-    sql = sql.concat(tmp + ")");
-    return jdbcTemplate.queryForList(sql, ProfileImg.class);
-  }
-
-  @Override
-  public int insertMemberProfileImg(long memberId, ProfileImg profileImg) {
-    String sql =
-        "UPDATE member SET "
-            + "profile_img_name = ?,"
-            + "profile_img_size = ?,"
-            + "profile_img_type = ?,"
-            + "profile_img_data = ?,"
-            + "profile_img_upload_date =? WHERE id=?";
+    String sql = "INSERT INTO member (id,username,password,email,profile_img) VALUES(?,?,?,?,?)";
     return jdbcTemplate.update(
         sql,
-        profileImg.getFileName(),
-        profileImg.getFileSize(),
-        profileImg.getType(),
-        profileImg.getFileData(),
-        System.currentTimeMillis(),
-        memberId);
+        member.getId(),
+        member.getUsername(),
+        member.getPassword(),
+        member.getEmail(),
+        member.getProfileImg());
   }
 
   @Override
   public Integer checkUserExists(String value, String password) {
+    Integer result = null;
     String sql = "SELECT id FROM member WHERE (username =? OR email =?) AND password = ?";
-    Integer result = jdbcTemplate.queryForObject(sql, Integer.class, value, value, password);
-    if (result == null) {
+    try {
+      result = jdbcTemplate.queryForObject(sql, Integer.class, value, value, password);
+    } catch (EmptyResultDataAccessException e) {
       return -1;
     }
     return result;
@@ -87,21 +61,21 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
 
   @Override
   public boolean checkEmailExists(String email) {
-    String sql = "SELECT id FROM member WHERE email = ?";
-    return jdbcTemplate.queryForObject(sql, Boolean.class, email) == null;
+    String sql = "SELECT * FROM member WHERE email = ?";
+    return jdbcTemplate.query(sql, new MemberMapper(), email) != null;
   }
 
   @Override
   public boolean checkUsernameExists(String username) {
-    String sql = "SELECT id FROM member WHERE username = ?";
-    return jdbcTemplate.queryForObject(sql, Boolean.class, username) == null;
+    String sql = "SELECT * FROM member WHERE username = ?";
+    return jdbcTemplate.query(sql, new MemberMapper(), username) != null;
   }
 
   @Override
   public Member getMemberById(long id) {
     String sql =
         "SELECT id,username,password,email,joined,post_count,last_visit FROM member WHERE id=?";
-    return jdbcTemplate.queryForObject(sql, Member.class, id);
+    return jdbcTemplate.queryForObject(sql, new MemberMapper(), id);
   }
 
   @Override
@@ -139,9 +113,10 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
         member.getId());
   }
 
-  @Override
-  public Integer getMaxMemberId() {
-    String sql = "SELECT NVL(MAX(id),0) FROM member";
-    return jdbcTemplate.queryForObject(sql, Integer.class);
-  }
+  //
+  //  @Override
+  //  public Integer getMaxMemberId() {
+  //    String sql = "SELECT NVL(MAX(id),0) FROM member";
+  //    return jdbcTemplate.queryForObject(sql, Integer.class);
+  //  }
 }

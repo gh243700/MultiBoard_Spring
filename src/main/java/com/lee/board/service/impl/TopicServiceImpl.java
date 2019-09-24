@@ -71,7 +71,7 @@ public class TopicServiceImpl implements TopicServiceI {
             post.setTopicInfo(topicInfo);
           }
           post.setMember(memberRepositoryI.getMemberById(post.getWriter()));
-          post.setProfileImg(memberRepositoryI.getProfileImgById(post.getWriter()));
+         // post.setProfileImg(memberRepositoryI.getProfileImgById(post.getWriter()));
         });
     return posts;
   }
@@ -98,12 +98,12 @@ public class TopicServiceImpl implements TopicServiceI {
               topic.setWriterInfo(memberRepositoryI.getMemberById(topic.getWriter()));
               Member recentPostMember =
                   memberRepositoryI.getMemberById(topic.getLastPostMemberId());
-              ProfileImg profileImg =
-                  memberRepositoryI.getProfileImgById(topic.getLastPostMemberId());
-              if (profileImg != null && recentPostMember != null) {
-                recentPostMember.setProfileImg(profileImg);
-                topic.setLastPostMemberInfo(recentPostMember);
-              }
+//              ProfileImg profileImg =
+//                  memberRepositoryI.getProfileImgById(topic.getLastPostMemberId());
+//              if (profileImg != null && recentPostMember != null) {
+//                recentPostMember.setProfileImg(profileImg);
+//                topic.setLastPostMemberInfo(recentPostMember);
+//              }
             }
           });
     }

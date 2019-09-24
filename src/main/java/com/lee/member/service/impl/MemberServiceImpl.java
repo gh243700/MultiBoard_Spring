@@ -1,17 +1,16 @@
 package com.lee.member.service.impl;
 
 import com.lee.member.model.Member;
-import com.lee.member.model.ProfileImg;
 import com.lee.member.repository.MemberRepositoryI;
 import com.lee.member.service.MemberServiceI;
-import com.lee.util.Util;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 /** @author Lee97 */
 @Service
@@ -25,33 +24,43 @@ public class MemberServiceImpl implements MemberServiceI {
   }
 
   @Override
-  @Transactional(rollbackFor = {DataAccessException.class,IOException.class})
-  public int register(Member member) {
-    member.setId(memberRepository.getMaxMemberId() + 1);
-    if (member.getProfileImg() == null) {
-      MultipartFile file = Util.getDefaultImage();
-      if (file != null) {
-        try {
-          member.setProfileImg(
-              ProfileImg.builder()
-                  .fileName(file.getOriginalFilename())
-                  .fileData(file.getBytes())
-                  .fileSize(String.valueOf(file.getSize()))
-                  .uploadDate(new Timestamp(System.currentTimeMillis()))
-                  .type(file.getContentType())
-                  .build());
-        } catch (IOException e) {
-          e.printStackTrace();
-          return 0;
-        }
-      }
+  public String displayNameValidation(String displayName) {
+    String message = null;
+    if (memberRepository.checkUsernameExists(displayName)) {
+      message = "user already exists";
     }
-    if (memberRepository.insertMember(member) != 1
-        || memberRepository.insertMemberProfileImg(member.getId(), member.getProfileImg()) != 1) {
-      // error
-      return -1;
+    return message;
+  }
+
+  @Override
+  public String emailValidation(String emailAddress, String confirmEmailAddress) {
+    String message = null;
+    if (!emailAddress.equals(confirmEmailAddress)) {
+      message = "email does not match";
     }
-    return 1;
+    if (memberRepository.checkEmailExists(emailAddress)) {
+      message = "email exists";
+    }
+    return message;
+  }
+
+  @Override
+  public String validatePassword(String password, String confirmPassword) {
+    String message = null;
+    if (!password.equals(confirmPassword)) {
+      message = "password does not match";
+    }
+    return message;
+  }
+
+  @Override
+  @Transactional(rollbackFor = {DataAccessException.class, IOException.class})
+  public String register(Member member) {
+    String message = null;
+    if (memberRepository.insertMember(member) != 1) {
+      message = "register failed";
+    }
+    return message;
   }
 
   @Override
@@ -60,19 +69,24 @@ public class MemberServiceImpl implements MemberServiceI {
   }
 
   @Override
-  public int loginService(String value, String password) {
-    // return code: -1 = username or email not found, 0 = password does not match;
-    int result = memberRepository.checkUserExists(value, password);
-    if (result == -1) {
-      if (!memberRepository.checkEmailExists(value)
-          || !memberRepository.checkUsernameExists(value)) {
-        return -1;
+  public Map<Integer, String> loginService(String value, String password) {
+    String message = null;
+    int val = memberRepository.checkUserExists(value, password);
+    Map<Integer, String> map = new HashMap<>();
+    if (val == -1) {
+      boolean emailExists = memberRepository.checkEmailExists(value);
+      boolean usernameExists = memberRepository.checkUsernameExists(value);
+      if (!emailExists && !usernameExists) {
+        message = "username or email does not exist";
       } else {
-        return 0;
+        message = "password does not match";
       }
+      map.put(0, message);
+    } else {
+      map.put(1, Integer.toString(val));
     }
     // returns id;
-    return result;
+    return map;
   }
 
   @Override
