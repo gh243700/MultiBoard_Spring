@@ -20,7 +20,6 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
   @Autowired private JdbcTemplate jdbcTemplate;
 
   private class MemberMapper implements RowMapper<Member> {
-
     @Override
     public Member mapRow(ResultSet resultSet, int i) throws SQLException {
       return Member.builder()

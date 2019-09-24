@@ -32,7 +32,7 @@
         <!--    -->
         <div class="col-10 mt-2">
             <div class="d-flex flex-row-reverse">
-                <a class="btn btn-danger p-2" href="#">START NEW TOPIC</a>
+                <a class="btn btn-danger p-2" href="/main/forum/<c:out value="${discussion.id}"/>/?do=add">START NEW TOPIC</a>
             </div>
             <section>
                 <nav class="nav bg-white mt-3 p-2">

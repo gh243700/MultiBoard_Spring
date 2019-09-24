@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 /** @author Lee97 */
-@EnableWebMvc
+
 @Configuration
 @ComponentScan(basePackages = "com.lee")
 public class WebConfig extends WebMvcConfigurationSupport {
@@ -30,9 +30,10 @@ public class WebConfig extends WebMvcConfigurationSupport {
   }
 
   @Override
-  protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-    registry.addResourceHandler("/**").addResourceLocations("/WEB-INF/resources/");
-    registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/resources/js/");
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("/**")
+        .addResourceLocations("/WEB-INF/static/");
+    //registry.addResourceHandler("/image/**").addResourceLocations("/resources/js/");
   }
 
   @Override

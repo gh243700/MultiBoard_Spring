@@ -28,6 +28,11 @@ public class ForumController {
 
   @Autowired private TopicServiceI topicServiceI;
 
+  @RequestMapping(value = "/main/forum/uploadImg", method = RequestMethod.GET)
+  public String uploadImg()
+  {
+    return null;
+  }
 
   @RequestMapping(
       value = {"/home", ""},
@@ -48,9 +53,17 @@ public class ForumController {
       Model model,
       @PathVariable long discussionId,
       @PathVariable(required = false) String page,
+      @RequestParam(value = "do", required = false) String newTopic,
       @RequestParam(value = "sortby", required = false, defaultValue = "title") String sortby,
       @RequestParam(value = "sortdirection", required = false, defaultValue = "DESC")
-          String sortdirection) {
+          String sortdirection,
+      RedirectAttributes redirectAttributes) {
+
+    if ((newTopic != null) && newTopic.equals("add")) {
+      redirectAttributes.addFlashAttribute("discussionId", discussionId);
+      return "forum/submitNewTopic";
+    }
+
     Discussion discussion = discussionService.getDiscussionById(discussionId);
     model.addAttribute("discussionInfo", discussion);
     model.addAttribute("categoryInfo", categoryService.getCategoryById(discussion.getCategoryId()));
