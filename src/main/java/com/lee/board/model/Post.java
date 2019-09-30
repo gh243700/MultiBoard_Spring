@@ -21,8 +21,8 @@ import lombok.ToString;
 @ToString
 public class Post {
   private long id;
+  private String title;
   private String content;
-  private long writer;
   private Timestamp writeDate;
   private Timestamp edited;
   private int reactLike;
@@ -33,7 +33,9 @@ public class Post {
   private long topicId;
   private long discussionId;
 
-  private ProfileImg profileImg;
-  private Member member;
-  private Topic topicInfo;
+  private long writer;
+  private String username;
+  private String profileImg;
+  private int postCount;
+
 }

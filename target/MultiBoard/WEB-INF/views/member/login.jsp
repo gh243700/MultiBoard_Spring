@@ -25,9 +25,8 @@
         <div class="col-md-8">
             <div class="card" style="height: 30rem">
                 <div class="card-header">Sign In</div>
-
                 <div class="card-body" style="margin-top: 2rem">
-                    <form action="" method="">
+                    <form action="/member/login" method="post">
                         <button class="btn btn-primary mt-3 mb-3"><i class="fab fa-google"></i>
                         </button>
                         <div class="form-group row">

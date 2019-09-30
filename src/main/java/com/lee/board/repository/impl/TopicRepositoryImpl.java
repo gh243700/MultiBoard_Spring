@@ -12,7 +12,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 /** @author lee */
-
 @Repository
 public class TopicRepositoryImpl implements TopicRepositoryI {
 
@@ -35,6 +34,9 @@ public class TopicRepositoryImpl implements TopicRepositoryI {
           .replyStep(resultSet.getInt("reply_step"))
           .topicId(resultSet.getLong("topic_id"))
           .discussionId(resultSet.getLong("discussion_id"))
+          .profileImg(resultSet.getString("profile_img"))
+          .username(resultSet.getString("username"))
+          .postCount(resultSet.getInt("post_count"))
           .build();
     }
   }
@@ -56,6 +58,22 @@ public class TopicRepositoryImpl implements TopicRepositoryI {
           .postCount(resultSet.getInt("post_count"))
           .build();
     }
+  }
+
+  @Override
+  public int insertTopic(Topic topic) {
+    String sql =
+        "INSERT INTO topics(title,writer,discussion_id,recent_post_id,post_count,recent_post_member,recent_post_date) "
+            + "VALUES (?,?,?,?,?,?,?)";
+    return jdbcTemplate.update(
+        sql,
+        topic.getTitle(),
+        topic.getWriter(),
+        topic.getDiscussionId(),
+        topic.getLastPostId(),
+        topic.getPostCount(),
+        topic.getLastPostMemberId(),
+        topic.getLastPostDate());
   }
 
   @Override
@@ -81,6 +99,12 @@ public class TopicRepositoryImpl implements TopicRepositoryI {
   }
 
   @Override
+  public long getMaxTopicId() {
+    String sql = "SELECT MAX(id) FROM topics";
+    return jdbcTemplate.queryForObject(sql, long.class);
+  }
+
+  @Override
   public Topic getTopicById(long topicId) {
     String sql = "SELECT * FROM topics WHERE id = ?";
     return jdbcTemplate.queryForObject(sql, new TopicMapper(), topicId);
@@ -103,10 +127,10 @@ public class TopicRepositoryImpl implements TopicRepositoryI {
   }
 
   @Override
-  public List<Post> getPostListByTopicId(long tId, int start, int end) {
+  public List<Post> getPostListByTopicId(long tId, int limit, int offset) {
     String sql =
-        "SELECT *" + "FROM posts WHERE topic_id = ? ORDER BY reply_step ASC LIMIT ? OFFSET ?";
-    return jdbcTemplate.query(sql, new PostMapper(), start, end);
+        "SELECT A.*, B.username, B.profile_img, B.post_count FROM posts A INNER JOIN member B ON A.writer = B.id WHERE A.topic_id = ? ORDER BY A.reply_step ASC LIMIT ? OFFSET ?";
+    return jdbcTemplate.query(sql, new PostMapper(), tId, limit, offset);
   }
 
   @Override

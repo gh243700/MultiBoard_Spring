@@ -24,12 +24,16 @@ public class MemberServiceImpl implements MemberServiceI {
   }
 
   @Override
-  public String displayNameValidation(String displayName) {
+  public Map<Integer, String> displayNameValidation(String displayName) {
+    Map<Integer, String> map = new HashMap<>();
     String message = null;
     if (memberRepository.checkUsernameExists(displayName)) {
       message = "user already exists";
+      map.put(0, message);
+    } else {
+      map.put(1, "1");
     }
-    return message;
+    return map;
   }
 
   @Override
@@ -55,12 +59,16 @@ public class MemberServiceImpl implements MemberServiceI {
 
   @Override
   @Transactional(rollbackFor = {DataAccessException.class, IOException.class})
-  public String register(Member member) {
-    String message = null;
+  public Map<Integer, String> register(Member member) {
+    String message;
+    Map<Integer, String> map = new HashMap<>();
     if (memberRepository.insertMember(member) != 1) {
       message = "register failed";
+      map.put(0, message);
+    } else {
+      map.put(1, null);
     }
-    return message;
+    return map;
   }
 
   @Override

@@ -3,11 +3,17 @@ package com.lee.board.controller;
 import com.lee.board.model.Category;
 import com.lee.board.model.Discussion;
 import com.lee.board.model.Post;
+import com.lee.board.model.Topic;
 import com.lee.board.service.CategoryServiceI;
 import com.lee.board.service.DiscussionServiceI;
 import com.lee.board.service.TopicServiceI;
+import com.lee.member.model.Member;
 import com.lee.util.CommonUtil;
+import java.sql.Timestamp;
 import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -28,10 +35,12 @@ public class ForumController {
 
   @Autowired private TopicServiceI topicServiceI;
 
-  @RequestMapping(value = "/main/forum/uploadImg", method = RequestMethod.GET)
-  public String uploadImg()
-  {
-    return null;
+  @RequestMapping(value = "/main/forum/uploadImg", method = RequestMethod.POST)
+  public void uploadImg(
+      HttpServletRequest request,
+      HttpServletResponse response,
+      @RequestParam MultipartFile upload) {
+    topicServiceI.uploadImg(upload, response, request);
   }
 
   @RequestMapping(
@@ -49,7 +58,7 @@ public class ForumController {
   @RequestMapping(
       value = {"main/forum/{discussionId}/page/{page}", "main/forum/{discussionId}"},
       method = RequestMethod.GET)
-  public String getDiscussionListById(
+  public String topicsListByDiscussion(
       Model model,
       @PathVariable long discussionId,
       @PathVariable(required = false) String page,
@@ -58,43 +67,74 @@ public class ForumController {
       @RequestParam(value = "sortdirection", required = false, defaultValue = "DESC")
           String sortdirection,
       RedirectAttributes redirectAttributes) {
-
-    if ((newTopic != null) && newTopic.equals("add")) {
-      redirectAttributes.addFlashAttribute("discussionId", discussionId);
-      return "forum/submitNewTopic";
-    }
-
     Discussion discussion = discussionService.getDiscussionById(discussionId);
     model.addAttribute("discussionInfo", discussion);
     model.addAttribute("categoryInfo", categoryService.getCategoryById(discussion.getCategoryId()));
+    if ((newTopic != null) && newTopic.equals("add")) {
+      return "forum/submitNewTopic";
+    }
     model.addAttribute(
         "topicList", topicServiceI.getListByDiscussionId(discussionId, sortby, page));
     return "forum/forum";
   }
 
   @RequestMapping(
-      value = {"/topic/{topicId}", "/topic/{topicId}/page/{page}"},
+      value = {"/main/topic/{topicId}", "/main/topic/{topicId}/page/{page}"},
       method = RequestMethod.GET)
   public String getPostListById(
       Model model, @PathVariable long topicId, @PathVariable(required = false) String page) {
+    Topic topic = topicServiceI.getTopicById(topicId);
+    Discussion discussion = discussionService.getDiscussionById(topic.getDiscussionId());
+    Category category = categoryService.getCategoryById(discussion.getCategoryId());
 
+    model.addAttribute("discussionInfo", discussion);
+    model.addAttribute("categoryInfo", category);
+    model.addAttribute("topicInfo", topic);
     model.addAttribute(
-        "topics",
+        "posts",
         topicServiceI.getPostListByTopicId(
             topicId, Integer.parseInt(StringUtils.isEmpty(page) ? "1" : page) - 1));
-    return null;
+    return "forum/subForum";
   }
 
   @RequestMapping(
-      value = {"/topic/{topicId}/*/"},
+      value = {"/main/forum/{discussionId}"},
       method = RequestMethod.POST)
-  public String submitPostAtTopicId(
-      @PathVariable long topicId, Post post, RedirectAttributes redirectAttributes) {
-    int att = 0;
-    if (topicServiceI.insertPost(post, topicId) != 0) {
-      att = 1;
+  public String newTopic(
+      @PathVariable(value = "discussionId") long discussion,
+      RedirectAttributes redirectAttributes,
+      @RequestParam(value = "title") String title,
+      @RequestParam(value = "tags", required = false) String tags,
+      @RequestParam(value = "editor") String content,
+      HttpServletRequest request) {
+
+    HttpSession session = request.getSession();
+
+    Member member = (Member) session.getAttribute("member");
+    Topic topic =
+        Topic.builder()
+            .title(title)
+            .writer(member.getId())
+            .discussionId(discussion)
+            .postCount(1)
+            .lastPostMemberId(member.getId())
+            .lastPostDate(new Timestamp(System.currentTimeMillis()))
+            .build();
+    Post post =
+        Post.builder()
+            .content(content)
+            .writer(member.getId())
+            .edited(null)
+            .replyStep(1)
+            .discussionId(discussion)
+            .build();
+    Map<Integer, Object> map = topicServiceI.insertTopic(topic, post);
+    if (map.containsKey(0)) {
+      String message = (String) map.get(0);
+      redirectAttributes.addFlashAttribute("message", message);
+      return "redirect:toerrorpage";
     }
-    redirectAttributes.addAttribute("value", att);
-    return "redirect:/topic/" + topicId;
+    long topicId = (long) map.get(1);
+    return "redirect:/main/topic/" + topicId;
   }
 }

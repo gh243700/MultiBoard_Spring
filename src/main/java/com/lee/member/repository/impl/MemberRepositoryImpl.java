@@ -30,20 +30,20 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
           .joined(resultSet.getTimestamp("joined"))
           .postCount(resultSet.getInt("post_count"))
           .lastVisit(resultSet.getTimestamp("last_visit"))
+          .profileImg(resultSet.getString("profile_img"))
           .build();
     }
   }
 
   @Override
   public int insertMember(Member member) {
-    String sql = "INSERT INTO member (id,username,password,email,profile_img) VALUES(?,?,?,?,?)";
+    String sql = "INSERT INTO member (id,username,password,email) VALUES(?,?,?,?)";
     return jdbcTemplate.update(
         sql,
         member.getId(),
         member.getUsername(),
         member.getPassword(),
-        member.getEmail(),
-        member.getProfileImg());
+        member.getEmail());
   }
 
   @Override
@@ -60,20 +60,39 @@ public class MemberRepositoryImpl implements MemberRepositoryI {
 
   @Override
   public boolean checkEmailExists(String email) {
-    String sql = "SELECT * FROM member WHERE email = ?";
-    return jdbcTemplate.query(sql, new MemberMapper(), email) != null;
+    String sql = "SELECT id FROM member WHERE email = ?";
+    boolean result;
+    try {
+      if (jdbcTemplate.queryForObject(sql, Integer.class, email) != null) {
+        result = false;
+      } else {
+        result = true;
+      }
+    } catch (Exception e) {
+      result = false;
+    }
+    return result;
   }
 
   @Override
   public boolean checkUsernameExists(String username) {
-    String sql = "SELECT * FROM member WHERE username = ?";
-    return jdbcTemplate.query(sql, new MemberMapper(), username) != null;
+    String sql = "SELECT username FROM member WHERE username = ?";
+    boolean result;
+    try {
+      if (jdbcTemplate.queryForObject(sql, String.class, username) != null) {
+        result = false;
+      } else {
+        result = true;
+      }
+    } catch (Exception e) {
+      result = false;
+    }
+    return result;
   }
 
   @Override
   public Member getMemberById(long id) {
-    String sql =
-        "SELECT id,username,password,email,joined,post_count,last_visit FROM member WHERE id=?";
+    String sql = "SELECT * FROM member WHERE id=?";
     return jdbcTemplate.queryForObject(sql, new MemberMapper(), id);
   }
 

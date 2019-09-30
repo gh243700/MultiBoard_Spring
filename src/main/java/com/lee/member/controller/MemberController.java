@@ -67,21 +67,22 @@ public class MemberController {
       @RequestParam("confirmPassword") String confirmPassword,
       RedirectAttributes redirectAttributes,
       HttpSession httpSession) {
-    String displayValidation = memberService.displayNameValidation(displayName);
+    Map<Integer, String> displayValidation = memberService.displayNameValidation(displayName);
     String emailValidation = memberService.emailValidation(emailAddress, confirmEmailAddress);
     String passwordValidation = memberService.validatePassword(password, confirmPassword);
-    if (displayValidation == null && emailValidation == null && passwordValidation == null) {
+    if (displayValidation.containsKey(1) && emailValidation == null && passwordValidation == null) {
       Member member =
           Member.builder().username(displayName).password(password).email(emailAddress).build();
-      String message = memberService.register(member);
-      redirectAttributes.addFlashAttribute("message", message);
-      if (message != null) {
-        httpSession.setAttribute(
-            "member", memberService.loginService(member.getEmail(), member.getPassword()));
-        return "redirect:/member/login";
+      Map<Integer, String> message = memberService.register(member);
+      if (message.containsKey(1)) {
+        String memberId =
+            memberService.loginService(member.getUsername(), member.getPassword()).get(1);
+        httpSession.setAttribute("member", memberService.getMemberById(Integer.parseInt(memberId)));
+        return "redirect:/home";
       }
+      redirectAttributes.addFlashAttribute("message", message.get(0));
     }
-    redirectAttributes.addFlashAttribute("displayNameMessage", displayValidation);
+    redirectAttributes.addFlashAttribute("displayNameMessage", displayValidation.get(0));
     redirectAttributes.addFlashAttribute("emailMessage", emailValidation);
     redirectAttributes.addFlashAttribute("passwordMessage", passwordValidation);
     redirectAttributes.addFlashAttribute("displayName", displayName);

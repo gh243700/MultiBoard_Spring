@@ -7,13 +7,13 @@ public interface MemberServiceI {
 
   Member getMemberById(long id);
 
-  String displayNameValidation(String displayName);
+  Map<Integer, String> displayNameValidation(String displayName);
 
   String emailValidation(String emailAddress, String confirmEmailAddress);
 
   String validatePassword(String password, String confirmPassword);
 
-  String register(Member member);
+  Map<Integer, String> register(Member member);
 
   int deleteMember(long id);
 

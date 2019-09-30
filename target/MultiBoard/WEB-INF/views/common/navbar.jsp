@@ -3,7 +3,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="far fa-comment"></i>Forums <span
+                <a class="nav-link" href="/home"><i class="far fa-comment"></i>Forums <span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -38,7 +38,7 @@
                        role="button"
                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
-                        <img src="..." alt="..." class="img-thumbnail rounded-circle">
+                        <img style="height: 2rem; width: 2rem;" src="<c:out value="${member.profileImg}"/>" alt="..." class="img-thumbnail rounded-circle">
                         <c:out value="${member.username}"/>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

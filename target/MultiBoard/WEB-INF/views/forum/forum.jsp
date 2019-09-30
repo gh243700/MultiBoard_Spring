@@ -25,15 +25,18 @@
     <i class="fas fa-home"></i><span class="ml-1">home > <c:out
         value="${categoryInfo.title}"/> > <c:out value="${discussion.title}"/></span>
     <hr>
-
     <h3 class="mt-2"><c:out value="${discussion.title}"/></h3>
     <small><c:out value="${discussion.description}"/></small>
     <div class="row">
         <!--    -->
         <div class="col-10 mt-2">
-            <div class="d-flex flex-row-reverse">
-                <a class="btn btn-danger p-2" href="/main/forum/<c:out value="${discussion.id}"/>/?do=add">START NEW TOPIC</a>
-            </div>
+            <c:if test="${sessionScope.member != null}">
+                <div class="d-flex flex-row-reverse">
+                    <a class="btn btn-danger p-2"
+                       href="/main/forum/<c:out value="${discussion.id}"/>/?do=add">START NEW
+                        TOPIC</a>
+                </div>
+            </c:if>
             <section>
                 <nav class="nav bg-white mt-3 p-2">
                     <!-- maximum of 6 btn for paging -->
@@ -54,7 +57,10 @@
                         <li class="list-group-item  p-1  ">
                             <div class="row" style="font-size: small">
                                 <div class="col-7">
-                                    <strong class="d-flex"><c:out value="${topic.title}"/></strong>
+                                    <a style="color: black"
+                                       href="<c:out value="/main/topic/${topic.id}"/>"><strong
+                                            class="d-flex"><c:out
+                                            value="${topic.title}"/></strong></a>
                                     <p style="color: darkgray">By <c:out
                                             value="${topic.writerInfo.username}"/>, <c:out
                                             value="${topic.writeDate}"/></p>
@@ -70,7 +76,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="row">
-                                        <img src=".." class="img-thumbnail col-1" alt="..">
+                                        <img src="<c:out value="${topic.lastPostMemberInfo.profileImg}"/>" class="img-thumbnail col-1" alt="..">
                                         <div class="col-11">
                                         <span class="">
                                         <c:out value="${topic.lastPostMemberInfo.username}"/></span>
